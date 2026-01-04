@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>보령 미용학원</title>
+
+  <style>
+    /* */
+    @keyframes blink-effect-1 {
+      0% {
+        background-color: #c9dfd4;
+        transform: scale(1);
+      }
+    }
+
+    /* */
+
+    /*                                             Base Layout Set [Start]__[CSS]*/
+    body {
+      background-color: #fdfdfd;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+      min-height: 200vh;
+    }
+
+    /*                                                Base Layout Set [End]__[CSS]*/
+
+    /*                                                     top bar [Start]__[CSS]*/
+    .top-bar {
+      position: fixed;
+      /*화면에 고정*/
+      font-family: "굴림", sans-serif;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 95%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .top-center {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .top-center img {
+      height: 40px;
+    }
+
+    .center-text-1 {
+      font-size: 35px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-left: 10px;
+    }
+
+    .center-text-2 {
+      font-size: 35px;
+      font-weight: 900;
+      color: #545454;
+      margin-left: 5px;
+    }
+
+    .center-text-3 {
+      font-size: 35px;
+      font-weight: 900;
+      color: #545454;
+      margin-left: 5px;
+    }
+
+    .center-text-4 {
+      font-size: 35px;
+      font-weight: 900;
+      color: #545454;
+      margin-left: 5px;
+    }
+
+    /*                                                     top bar [End]__[CSS]*/
+
+    /*                                                     top light [Start]__[CSS]*/
+    .phone-button-image-1 {
+      position: fixed;
+      top: 0px;
+      right: 30px;
+      z-index: 1000;
+      width: 250px;
+      margin: 10px auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      background-color: #ffffff;
+      border-radius: 30px;
+      padding: 1px 1px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .phone-button-image-1:hover {
+      background-color: #9bd4b8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .phone-button-image-1-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .phone-button-image-1-left img {
+      width: 30px;
+      height: 30px;
+      display: block;
+      /* 이미지 아래 빈 공간 제거 */
+    }
+
+    .phone-button-image-1-Light {
+      color: #dd464e;
+      font-size: 24px;
+      font-weight: 900;
+      font-family: '견고딕', sans-serif;
+      padding: 10px 0px;
+    }
+
+    /*                                                               top light [End]__[CSS]*/
+
+    /*                                                              foot bar [Start]__[CSS]*/
+    .footer-container {
+      background-color: #ffffff;
+      padding: 10px 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 50%;
+      margin: 0px auto;
+      border-radius: 10px 10px;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .footer-container.minimized {
+      transform: translateY(100%);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-toggle-btn {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 60px;
+      margin: 0px auto;
+      height: 50px;
+      background-color: #222;
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1001;
+
+      transition: background-color 0.3s;
+    }
+
+    .footer-toggle-btn:hover {
+      background-color: #444;
+    }
+
+    .footer-left {
+      width: 40%;
+      text-align: center;
+      height: 40px;
+      color: #222;
+      font-size: 24px;
+      font-weight: 300;
+      font-family: '굴림', sans-serif;
+      padding-top: 8px;
+      background-color: #a8ddc3;
+      border-radius: 10px 10px;
+      animation: blink-effect-1 0.5s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    .footer-right {
+      width: 40%;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      background-color: #eceaea;
+      border-radius: 10px 10px;
+      padding: 5px 5px;
+      text-decoration: none;
+    }
+
+    .footer-right-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-right-left img {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
+    .footer-right-right {
+      color: #181616;
+      font-size: 24px;
+      font-weight: 300;
+      font-family: '굴림', sans-serif;
+      padding: 10px 0px;
+
+    }
+
+    /*                                                                 foot bar [End]__[CSS]*/
+
+    /*                                                menu bar [Start]__[Menu Bar Set] [CSS]*/
+    /* 1. 메뉴바 전체 틀 */
+    .main-nav {
+      background-color: #ffffff;
+      /* 연한 회색 배경 */
+      width: 100%;
+      justify-content: center;
+      margin-top: 70px;
+      z-index: 1000;
+    }
+
+    /* 2. 메뉴 리스트 정렬 (가로 배치) */
+    .menu-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      /* 점(bullet) 제거 */
+      padding: 0;
+      margin: 0 auto;
+      gap: 0px;
+    }
+
+    /* 3. 메뉴 링크 기본 스타일 */
+    .menu-item {
+      display: block;
+      padding: 1px 50px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      background-color: #7798bb;
+      color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /*                           dropdown menu [Start]__[Dropdown Menu][Menu Bar Set] [CSS]*/
+    /* 1. 부모 메뉴 */
+    .menu-item-wrap {
+      position: relative;
+    }
+
+    /* 2. 소메뉴 박스 스타일 */
+    .dropdown-menu {
+      display: none;
+      /* 평소에는 숨김 */
+      position: absolute;
+      /* 공중에 띄움 */
+      top: 100%;
+      left: 0;
+      width: 100%;
+      /* 부모 너비에 맞춤 (필요시 160px 등으로 고정 가능) */
+      min-width: 100px;
+      background-color: #ffffff;
+      /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);*/
+      padding: 0;
+      list-style: none;
+      z-index: 1000;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    /* 3. 소메뉴 내부 링크 */
+    .dropdown-menu li a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    /* 4. 소메뉴 마우스 올렸을 때 (Hover) */
+    .dropdown-menu li a:hover {
+      background-color: #ced4da;
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* 현재 보고 있는 페이지의 소메뉴 스타일 (진하게 표시) */
+    .dropdown-menu li a.current-page {
+      font-weight: bold;
+      color: #0056b3;
+      /* 진한 파란색 글씨 */
+      background-color: #e2e6ea;
+      /* 연한 배경색 */
+    }
+
+    /* 5. ★ 핵심 변경 사항: 전체 보여주기 로직 */
+    /* 해석: .menu-list(메뉴바 전체)에 마우스가 올라가면, 그 안의 모든 .dropdown-menu를 보여라 */
+    .menu-list:hover .dropdown-menu {
+      display: block;
+
+      /* 등장 애니메이션 (선택사항) */
+      animation: slideDown 0.3s ease;
+    }
+
+    /* 부드럽게 내려오는 효과 (선택사항) */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 2. [추가] 메뉴 중 하나라도 클릭되어 활성화 모드(.active-mode)가 되면 다 보여주기 */
+    /* "나 하나 선택됐다고 다른 애들 닫지 마!" */
+    .menu-list.active-mode .dropdown-menu {
+      display: block;
+    }
+
+    /* [추가] 메뉴가 활성화(active) 상태면 소메뉴를 무조건 보여줌 */
+    .menu-item-wrap.active .dropdown-menu {
+      display: block;
+      background-color: #d1e7dd;
+      /* 연한 초록색 (원하는 색으로 변경 가능) */
+
+      /* 좀 더 눈에 띄게 하려면 테두리나 글자색도 변경 가능 */
+      /* border: 1px solid #0f5132; */
+    }
+
+    /* 4. (선택사항) 선택된 소메뉴 안의 링크들에 마우스 올렸을 때 */
+    .menu-item-wrap.active .dropdown-menu li a:hover {
+      background-color: #badbcc;
+      /* 배경색보다 조금 더 진한 색 */
+    }
+
+    /* (선택사항) 활성화된 메뉴의 버튼 색상도 유지하고 싶다면 */
+    .menu-item-wrap.active .menu-item {
+      background-color: #007bff;
+      /* 파란색 배경 */
+      color: #ffffff;
+      /* 흰색 글씨 */
+    }
+
+    /*                              dropdown menu [End]__[Dropdown Menu][Menu Bar Set] [CSS]*/
+    /*                                                  menu bar [End]__[Menu Bar Set] [CSS]*/
+
+    /*                                                  Pop-Up-1 [Start]__[Pop-Up Set] [CSS]*/
+    .modal-overlay-1 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .modal-content-1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      width: 350px;
+    }
+
+    .modal-content-1 h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .modal-phone-1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffeb3b;
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 15px 0;
+    }
+
+    .modal-close-btn {
+      position: fixed;
+      background-color: #333;
+      color: white;
+      border: none;
+      top: 10px;
+      right: 10px;
+      padding: 2px 10px;
+      border-radius: 25px;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    .modal-overlay-2 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .modal-content-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      width: 350px;
+    }
+
+    .modal-close-btn:hover {
+      background-color: #555;
+    }
+
+    /*                                                    Pop-Up-1 [End]__[Pop-Up Set] [CSS]*/
+
+    /*                                                           [Start]__[Mobile Set] [CSS]*/
+    @media (max-width: 768px) {
+
+      /*                                                 top bar [Start]__[Mobile Set] [CSS]*/
+      .top-bar {
+        width: 60%;
+        top: 5px;
+      }
+
+      .center-text-1 {
+        font-size: 18px;
+      }
+
+      .center-text-2 {
+        font-size: 18px;
+      }
+
+      .top-center img {
+        height: 30px;
+      }
+
+      /*                                                  top bar [End]__[Mobile Set] [CSS]*/
+
+      /*                                               foot bar [Start]__[Mobile Set] [CSS]*/
+      .footer-container {
+        width: 90%;
+        margin: 10px 10px;
+      }
+
+      .footer-left h3 {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+
+      .footer-left p {
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .footer-inner .copyright {
+        font-size: 10px;
+        margin-top: 5px;
+      }
+
+      .footer-inner {
+        line-height: 1;
+      }
+
+      .footer-right h3 {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+
+      .footer-right .footer-phone {
+        font-size: 15px;
+        padding: 5px 5px;
+      }
+
+      .footer-right p {
+        font-size: 10px;
+      }
+
+      /*                                                  foot bar [End]__[Mobile Set] [CSS]*/
+    }
+
+    /*                                                             [End]__[Mobile Set] [CSS]*/
+  </style>
+</head>
+
+<body>
+  <!--                                                            top bar [Start]__[html] -->
+  <header class="top-bar">
+    <a href="#" class="top-center">
+      <img src="Image_001_Boryeng City Logo.png" alt="City Logo" />
+      <span class="center-text-1">Lee</span>
+      <span class="center-text-2">Hair</span>
+      <span class="center-text-3">Beauty</span>
+      <span class="center-text-4">Academy</span>
+    </a>
+  </header>
+  <!--                                                              top bar [End]__[html] -->
+
+  <!--                                                          top light [Start]__[html] -->
+  <a href="tel:010-0000-0000" class="phone-button-image-1" id="phone-link">
+
+    <div class="phone-button-image-1-left">
+      <img src="Image_003_Phone-1.png" alt="Phone">
+    </div>
+
+    <div class="phone-button-image-1-Light">
+      041-930-0000
+    </div>
+
+  </a>
+  <!--                                                          top light [Start]__[html] -->
+
+  <!--                                                           foot bar [Start]__[html] -->
+  <div id="footer-toggle-btn" class="footer-toggle-btn">
+    숨기기
+  </div>
+
+  <div id="main-footer" class="footer-container">
+    <div class="footer-inner">
+      <div class="footer-left" id="item-link-1">
+        수강료 조회
+      </div>
+
+      <a href="tel:010-0000-0000" class="footer-right">
+
+        <div class="footer-right-left">
+          <img src="Image_004_location-1.png" alt="Location">
+        </div>
+
+        <div class="footer-right-right">
+          학원 위치
+        </div>
+
+      </a>
+    </div>
+  </div>
+  <!--                                                              foot bar [End]__[html] -->
+  <!--                                                 menu bar [Start]__[Menu Bar] [html] -->
+  <nav class="main-nav">
+    <ul class="menu-list">
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">아카데미</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">학원 소개</a></li>
+          <li><a href="#">강사진</a></li>
+          <li><a href="#">오시는 길</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">교육과정</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">헤어 미용</a></li>
+          <li><a href="#">두피 관리</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">자료실</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">헤어미용 이론</a></li>
+          <li><a href="#">두피관리 이론</a></li>
+          <li><a href="#">과제별 동영상</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">상담코너</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">수강료 조회</a></li>
+          <li><a href="#">1:1 상담</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+  <!--                                                   menu bar [End]__[Menu Bar] [html] -->
+  <!--                                               Pop-Up-1 [Start]__[Pop-Up Set] [html] -->
+  <div id="custom-modal-1" class="modal-overlay-1">
+    <div class="modal-content-1">
+      <h3>📞 안내 말씀</h3>
+      <p>
+        PC 환경에서는 전화 연결이 어렵습니다.<br>
+        <br>
+        스마트폰에서 터치하면 바로 연결됩니다.
+      </p>
+      <p class="modal-phone-1">041-930-0000</p>
+
+      <button class="modal-close-btn" onclick="closeModal()">X</button>
+    </div>
+  </div>
+
+  <div id="custom-modal-2" class="modal-overlay-2">
+    <div class="modal-content-2">
+      <h3>수강료 조회</h3>
+      <p>
+        PC 환경<br>
+        <br>
+        12345
+      </p>
+
+      <button class="modal-close-btn" onclick="closeModal()">X</button>
+    </div>
+  </div>
+  <!--                                                Pop-Up-1 [End]__[Pop-Up Set] [html] -->
+
+  <script>
+    //                                                     menu bar [Start]__[Menu Bar] [java]  
+    // 1. 필요한 요소들을 가져옵니다.
+    const menuList = document.querySelector('.menu-list'); // 메뉴판 전체 (부모)
+    const menuWraps = document.querySelectorAll('.menu-item-wrap'); // 개별 메뉴들 (자식)
+
+    // 2. 각 메뉴에 클릭 이벤트 연결
+    menuWraps.forEach(function (wrap) {
+      const link = wrap.querySelector('.menu-item');
+
+      // 링크가 없는 메뉴가 있을 수도 있으니 확인 후 실행
+      if (link) {
+        link.addEventListener('click', function (e) {
+          // (선택 사항) 링크 이동 막기 (테스트용)
+          // e.preventDefault();
+
+          // [핵심 1] 다른 형제 메뉴들의 'active' 상태는 끕니다.
+          // "나만 켜져야 하니까, 딴 애들은 꺼져"
+          menuWraps.forEach(function (other) {
+            if (other !== wrap) {
+              other.classList.remove('active');
+            }
+          });
+
+          // [핵심 2] 내 상태를 토글합니다. (켜져있으면 끄고, 꺼져있으면 킴)
+          wrap.classList.toggle('active');
+
+          // [핵심 3] 전체 메뉴판 상태 업데이트
+          // "지금 켜진 애가 하나라도 있니?" 확인해서 부모에게 알려줌
+          checkMenuStatus();
+        });
+      }
+    });
+
+    // 3. 부모(.menu-list)의 상태를 관리하는 함수
+    function checkMenuStatus() {
+      let hasActive = false;
+
+      // 메뉴들 중 하나라도 active 클래스가 있는지 검사
+      menuWraps.forEach(function (wrap) {
+        if (wrap.classList.contains('active')) {
+          hasActive = true;
+        }
+      });
+
+      // 하나라도 켜져 있다면 -> 부모에게 'active-mode' 부여 (CSS에서 이걸 보고 전체 소메뉴를 보여줌)
+      if (hasActive) {
+        menuList.classList.add('active-mode');
+      } else {
+        menuList.classList.remove('active-mode');
+      }
+    }
+
+    // 4. 화면의 빈 곳을 클릭하면 메뉴 모두 닫기
+    window.addEventListener('click', function (e) {
+      // 클릭한 곳이 메뉴바(.main-nav) 내부가 아니라면
+      if (!e.target.closest('.main-nav')) {
+        // 모든 메뉴의 active 제거
+        menuWraps.forEach(function (wrap) {
+          wrap.classList.remove('active');
+        });
+        // 부모의 active-mode 제거
+        if (menuList) {
+          menuList.classList.remove('active-mode');
+        }
+      }
+    });
+
+    /* --- [추가] 소메뉴 클릭 시 부모 메뉴 활성화하기 --- */
+    const subMenuLinks = document.querySelectorAll('.dropdown-menu li a');
+
+    subMenuLinks.forEach(function (subLink) {
+      subLink.addEventListener('click', function (e) {
+        // 1. 이벤트 전파 방지 (혹시 모를 버그 방지)
+        e.stopPropagation();
+
+        // 2. 클릭한 소메뉴의 '진짜 부모(menu-item-wrap)'를 찾습니다.
+        const parentWrap = subLink.closest('.menu-item-wrap');
+
+        // 3. 다른 메뉴들은 다 끕니다 (하나만 선택되게 하려면)
+        menuWraps.forEach(function (wrap) {
+          if (wrap !== parentWrap) {
+            wrap.classList.remove('active');
+          }
+        });
+
+        // 4. 찾은 부모 메뉴를 활성화(active) 시킵니다.
+        if (parentWrap) {
+          parentWrap.classList.add('active');
+        }
+
+        // 5. 전체 메뉴판 상태(active-mode) 업데이트
+        // (이게 있어야 소메뉴 창이 사라지지 않고 유지됩니다)
+        checkMenuStatus();
+      });
+    });
+
+    /* --- [추가] 페이지 로드 시 현재 URL과 일치하는 메뉴 활성화 --- */
+
+    function highlightCurrentPage() {
+      // 1. 현재 브라우저의 주소(경로)를 가져옵니다. (예: /teacher.html)
+      const currentPath = window.location.pathname;
+
+      // 2. 모든 소메뉴의 링크를 가져옵니다.
+      const subLinks = document.querySelectorAll('.dropdown-menu li a');
+
+      subLinks.forEach(function (link) {
+        // 링크에 적힌 주소 가져오기 (예: teacher.html)
+        const linkPath = link.getAttribute('href');
+
+        // 3. "현재 주소" 안에 "링크 주소"가 포함되어 있는지 확인
+        // (빈 링크 '#' 이거나, 주소가 없을 때는 무시)
+        if (linkPath && linkPath !== '#' && currentPath.indexOf(linkPath) !== -1) {
+
+          // (1) 소메뉴: 'current-page' 클래스 추가 (색상 변경용)
+          link.classList.add('current-page');
+
+          // (2) 부모 메뉴: 'active' 클래스 추가 (메뉴판 열어두기용)
+          const parentWrap = link.closest('.menu-item-wrap');
+          if (parentWrap) {
+            parentWrap.classList.add('active');
+          }
+        }
+      });
+
+      // 4. 부모 메뉴가 켜졌으니, 전체 메뉴판 상태(active-mode)도 업데이트
+      if (typeof checkMenuStatus === 'function') {
+        checkMenuStatus();
+      }
+    }
+
+    // 페이지가 다 열리면 즉시 실행!
+    window.addEventListener('DOMContentLoaded', highlightCurrentPage);
+    //                                                     menu bar [End]__[Menu Bar] [java]  
+
+    //                                                                 Pop-Up [Start]__[java]  
+    let abc = false;
+    let abc1 = false;
+    // 1. 팝업 열기 함수
+    function openModal() {
+      if (abc == true) {
+        document.getElementById('custom-modal-1').style.display = 'block';
+      }
+      if (abc1 == true) {
+        document.getElementById('custom-modal-2').style.display = 'block';
+      }
+
+    }
+
+    // 2. 팝업 닫기 함수
+    function closeModal() {
+      document.getElementById('custom-modal-1').style.display = 'none';
+      abc = false;
+      document.getElementById('custom-modal-2').style.display = 'none';
+      abc1 = false;
+    }
+
+    // 3. 전화번호 클릭 이벤트
+    document.getElementById('phone-link').addEventListener('click', function (event) {
+      abc = true;
+      var screenWidth = window.innerWidth;
+
+      // PC 화면(768px 초과)일 때만 팝업 띄움
+      if (screenWidth > 768) {
+        event.preventDefault(); // 전화 걸기 차단
+        openModal();
+      }
+    });
+    document.getElementById('item-link-1').addEventListener('click', function (event) {
+      abc1 = true;
+      var screenWidth = window.innerWidth;
+
+      // PC 화면(768px 초과)일 때만 팝업 띄움
+      if (screenWidth > 768) {
+        event.preventDefault(); // 전화 걸기 차단
+        openModal();
+      }
+    });
+
+    // (옵션) 팝업 바깥 어두운 배경을 클릭하면 닫히게 하기
+    document.getElementById('custom-modal-1').addEventListener('click', function (event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
+    //                                                                 Pop-Up [End]__[java]
+
+    //
+    const footer = document.getElementById('main-footer');
+    const toggleBtn = document.getElementById('footer-toggle-btn');
+
+    toggleBtn.addEventListener('click', function () {
+      footer.classList.toggle('minimized');
+
+      if (footer.classList.contains('minimized')) {
+        toggleBtn.innerText = "보이기";
+      } else {
+        toggleBtn.innerText = "숨기기";
+      }
+
+    });
+
+
+
+
+    //
+
+
+  </script>
+</body>
+
+</html>
