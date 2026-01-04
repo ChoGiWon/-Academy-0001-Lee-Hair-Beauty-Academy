@@ -23,7 +23,7 @@
       color: #2c3e50;
       margin: 0;
       padding: 0;
-      min-height: 200vh;
+      min-height: 100vh;
     }
 
     /* [[Full edit important]]                        Base Layout Set [End]__[CSS]*/
@@ -33,7 +33,7 @@
       position: fixed;
       /*화면에 고정*/
       font-family: "굴림", sans-serif;
-      top: 10px;
+      top: 0px;
       left: 50%;
       transform: translateX(-50%);
 
@@ -43,7 +43,6 @@
       align-items: center;
       padding: 10px 20px;
       background-color: #ffffff;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       border-radius: 12px;
       z-index: 1000;
       box-sizing: border-box;
@@ -96,7 +95,7 @@
       right: 30px;
       z-index: 1000;
       width: 250px;
-      margin: 10px auto;
+      margin: 0px auto;
 
       display: flex;
       align-items: center;
@@ -246,11 +245,14 @@
     /* [[Full edit important]]                        menu bar [Start]__[Menu Bar Set] [CSS]*/
     /* 1. 메뉴바 전체 틀 */
     .main-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
       background-color: #ffffff;
-      /* 연한 회색 배경 */
       width: 100%;
       justify-content: center;
-      margin-top: 70px;
+      margin-top: 60px;
       z-index: 1000;
     }
 
@@ -301,7 +303,7 @@
       width: 100%;
       /* 부모 너비에 맞춤 (필요시 160px 등으로 고정 가능) */
       min-width: 100px;
-      background-color: #ffffff;
+      background-color: #ebeef1;
       /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);*/
       padding: 0;
       list-style: none;
@@ -322,18 +324,14 @@
 
     /* 4. 소메뉴 마우스 올렸을 때 (Hover) */
     .dropdown-menu li a:hover {
-      background-color: #ced4da;
+      background-color: #c9d4df;
       color: #000;
       font-weight: 700;
     }
 
     /* 현재 보고 있는 페이지의 소메뉴 스타일 (진하게 표시) */
     .dropdown-menu li a.current-page {
-      font-weight: bold;
-      color: #0056b3;
-      /* 진한 파란색 글씨 */
       background-color: #e2e6ea;
-      /* 연한 배경색 */
     }
 
     /* 5. ★ 핵심 변경 사항: 전체 보여주기 로직 */
@@ -545,13 +543,259 @@
     }
 
     /* [[Full edit important]]                                     [End]__[Mobile Set] [CSS]*/
+
+    /* [[Current page]]                                        [Start]__[Current Page] [CSS]*/
+
+    .teacher-intro-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 200px 0px 200px;
+      font-family: "굴림", sans-serif;
+    }
+
+    /* [[Current page]]                  page path [Start]__[container] [Current Page] [CSS]*/
+    .page-path {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 20px;
+      width: 100%;
+    }
+
+    .page-path a {
+      text-decoration: none;
+      color: #888;
+      transition: color 0.3s;
+    }
+
+    .page-path a:hover {
+      color: #7798bb;
+      text-decoration: underline;
+    }
+
+    .page-path .separator {
+      margin: 0 8px;
+      font-size: 10px;
+      color: #ccc;
+    }
+
+    .page-path .current {
+      color: #333;
+      font-weight: bold;
+      cursor: default;
+    }
+
+    @media (max-width: 768px) {
+      .page-path {
+        display: none;
+      }
+    }
+
+    /* [[Current page]]                  page path [End]__[container] [Current Page] [CSS]*/
+
+    .intro-section-title {
+      margin-bottom: 0px;
+    }
+
+    .txt-2_t-1 {
+      font-size: 20px;
+      font-weight: 900;
+      color: #2e2d2d;
+      margin-bottom: 20px;
+      display: inline-block;
+      border-bottom: 1px solid #000;
+      padding-bottom: 2px;
+    }
+
+    .intro-section-box-1 {
+      display: flex;
+      align-items: flex-start;
+      gap: 0px;
+      background-color: #f3f2f2;
+      padding: 20px 100px;
+      border-radius: 20px;
+      border: 1px solid #eee;
+      margin-bottom: 50px;
+
+    }
+
+    .box-1-img-1 {
+      flex: 0 0 50%;
+      margin-top: 20px;
+    }
+
+    .box-1-img-1 img {
+      width: 50%;
+      height: auto;
+      border-radius: 15px;
+      display: block;
+    }
+
+    .txt-2_t-2 {
+      flex: 1;
+      font-family: "HY헤드라인M", sans-serif;
+    }
+
+    .txt-2_t-2 p {
+      margin-bottom: -15px;
+    }
+
+    .txt-2_t-2 p:last-child {
+      margin-bottom: 10px;
+    }
+
+    .txt-2_t-2_p-1 {
+      margin-top: 0;
+      font-size: 15px;
+      font-weight: 600;
+      color: #302d2d;
+    }
+
+    .txt-2_t-2_p-2 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-3 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-4 {
+      margin-top: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-5 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-6 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-7 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-8 {
+      margin-top: 30px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-9 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    .txt-2_t-2_p-10 {
+      margin-top: 20px;
+      font-size: 15px;
+      font-weight: 400;
+      color: #3f3c3c;
+    }
+
+    @media (max-width: 768px) {
+      .intro-section-box-1 {
+        flex-direction: column;
+        /* 방향을 '세로'로 변경 */
+        text-align: center;
+        /* (선택사항) 모바일에서는 가운데 정렬이 예쁨 */
+        padding: 20px;
+        /* 패딩 약간 줄임 */
+        gap: 20px;
+        /* 간격 줄임 */
+      }
+
+      /* 모바일에서 사진 크기 조정 */
+      .box-1-img-1 {
+        flex: 0 0 100%;
+        /* 너비 100% 다 쓰기 */
+        width: 100%;
+        /* 혹시 모르니 한 번 더 확실하게 */
+        max-width: 400px;
+        /* 너무 커지지 않게 제한 (선택사항) */
+      }
+
+      /* 모바일에서 제목 크기 살짝 줄임 */
+      .txt-2_t-2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+    }
+
+    /* [[Current page]]                                          [End]__[Current Page] [CSS]*/
+
+    /* [[Full edit important]]                              [Start]__[Scrolltopbutton] [CSS]*/
+    /* [[ Top 버튼 스타일 ]] */
+    #scrollTopBtn {
+      display: none;
+      /* 평소에는 숨겨둠 (자바스크립트로 제어) */
+
+      position: fixed;
+      /* 화면에 고정 */
+      bottom: 30px;
+      /* 바닥에서 30px 띄움 */
+      right: 30px;
+      /* 오른쪽에서 30px 띄움 */
+      z-index: 9999;
+      /* 다른 요소들보다 제일 위에 */
+
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: #7798bb;
+      /* 메뉴바와 같은 파란색 (원하면 #333 등 변경 가능) */
+      color: white;
+      /* 화살표 색상 */
+      cursor: pointer;
+      padding: 10px 15px;
+      /* 버튼 크기 조절 */
+      border-radius: 50%;
+      /* 동그랗게 만들기 (사각형을 원하면 10px) */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      /* 그림자 효과 */
+      transition: all 0.3s ease;
+      /* 부드러운 효과 */
+    }
+
+    /* 마우스 올렸을 때 */
+    #scrollTopBtn:hover {
+      background-color: #556b82;
+      /* 조금 더 진한 색으로 변경 */
+      transform: translateY(-3px);
+      /* 살짝 위로 둥실 떠오름 */
+    }
+
+    /* [[Full edit important]]                                [End]__[Scrolltopbutton] [CSS]*/
   </style>
 </head>
 
 <body>
   <!-- [[Full edit important]]                                     top bar [Start]__[html] -->
   <header class="top-bar">
-    <a href="#" class="top-center">
+    <a href="index.html" class="top-center">
       <img src="Image_001_Boryeng City Logo.png" alt="City Logo" />
       <span class="center-text-1">Lee</span>
       <span class="center-text-2">Hair</span>
@@ -605,16 +849,16 @@
     <ul class="menu-list">
 
       <li class="menu-item-wrap">
-        <a href="#" class="menu-item">아카데미</a>
+        <a href="0010 - 아카데미 - 학원소개.html" class="menu-item">아카데미</a>
         <ul class="dropdown-menu">
           <li><a href="0010 - 아카데미 - 학원소개.html">학원 소개</a></li>
-          <li><a href="0020 - 아카데미 - 강사진.html">강사진</a></li>
+          <li><a href="0020 - 아카데미 - 강사소개.html">강사 소개</a></li>
           <li><a href="0030 - 아카데미 - 오시는 길.html">오시는 길</a></li>
         </ul>
       </li>
 
       <li class="menu-item-wrap">
-        <a href="#" class="menu-item">교육과정</a>
+        <a href="0110 - 교육과정 - 헤어 미용.html" class="menu-item">교육과정</a>
         <ul class="dropdown-menu">
           <li><a href="0110 - 교육과정 - 헤어 미용.html">헤어 미용</a></li>
           <li><a href="0120 - 교육과정 - 두피 관리.html">두피 관리</a></li>
@@ -622,7 +866,7 @@
       </li>
 
       <li class="menu-item-wrap">
-        <a href="#" class="menu-item">자료실</a>
+        <a href="0210 - 자료실 - 헤어 미용 이론.html" class="menu-item">자료실</a>
         <ul class="dropdown-menu">
           <li><a href="0210 - 자료실 - 헤어 미용 이론.html">헤어 미용 이론</a></li>
           <li><a href="0220 - 자료실 - 두피 관리 이론.html">두피 관리 이론</a></li>
@@ -631,7 +875,7 @@
       </li>
 
       <li class="menu-item-wrap">
-        <a href="#" class="menu-item">상담 코너</a>
+        <a href="0310 - 상담 코너 - 수강료 조회.html" class="menu-item">상담 코너</a>
         <ul class="dropdown-menu">
           <li><a href="0310 - 상담 코너 - 수강료 조회.html">수강료 조회</a></li>
           <li><a href="0320 - 상담 코너 - 11 상담.html">1 : 1 상담</a></li>
@@ -641,12 +885,6 @@
     </ul>
   </nav>
   <!-- [[Full edit important]]                           menu bar [End]__[Menu Bar] [html] -->
-
-  <!--                                         test [Start]__[html] -->
-  <div class="testtext">
-    <p>강사진</p>
-  </div>
-  <!--                                           test [End]__[html] -->
 
   <!-- [[Full edit important]]                       Pop-Up-1 [Start]__[Pop-Up Set] [html] -->
   <div id="custom-modal-1" class="modal-overlay-1">
@@ -676,6 +914,56 @@
     </div>
   </div>
   <!-- [[Full edit important]]                        Pop-Up-1 [End]__[Pop-Up Set] [html] -->
+
+  <!-- [[Current page]]                                    [Start]__[Current Page] [html] -->
+
+  <div class="teacher-intro-container">
+
+    <div class="page-path">
+      <a href="index.html">HOME</a>
+      <span class="separator">&gt;</span>
+      <span>아카데미</span> <span class="separator">&gt;</span>
+      <span class="current">강사 소개</span>
+    </div>
+
+    <section class="intro-section-title">
+      <h1 class="txt-2_t-1">
+        <span class="txt-2_t-1_p-1">강사 소개</span>
+      </h1>
+    </section>
+
+    <section class="intro-section-box-1">
+      <div class="box-1-img-1">
+        <img src="Image_006_Profile-1.png" alt="profile">
+      </div>
+
+      <div class="txt-2_t-2">
+        <p class="txt-2_t-2_p-1">-학력</p>
+        <p class="txt-2_t-2_p-2">공주대 영어교육 전공</p>
+        <p class="txt-2_t-2_p-3">한국교원대 영어교육 석사 졸업</p>
+        <p class="txt-2_t-2_p-4">-자격증</p>
+        <p class="txt-2_t-2_p-5">공주대 영어교육 박사 수료</p>
+        <p class="txt-2_t-2_p-6">공주대 상담심리 석사 수료</p>
+        <p class="txt-2_t-2_p-7">2025.11 헤어미용 국가자격증 취득</p>
+        <p class="txt-2_t-2_p-8">-경력</p>
+        <p class="txt-2_t-2_p-9">-국립학교 영어교사 20년</p>
+        <p class="txt-2_t-2_p-10">-영어학원 강사 10년</p>
+
+      </div>
+    </section>
+  </div>
+
+
+
+
+
+
+  <!-- [[Current page]]                                    [End]__[Current Page] [html] -->
+
+  <!-- [[Full edit important]]                          [Start]__[Scrolltopbutton] [html] -->
+  <button id="scrollTopBtn" title="맨 위로 이동">↑</button>
+  <!-- [[Full edit important]]                           [End]__[Scrolltopbutton] [html] -->
+
 
   <script>
     // [[Full edit important]]                             menu bar [Start]__[Menu Bar] [java]  
@@ -777,38 +1065,45 @@
     /* --- [추가] 페이지 로드 시 현재 URL과 일치하는 메뉴 활성화 --- */
 
     function highlightCurrentPage() {
-      // 1. 현재 브라우저의 주소(경로)를 가져옵니다. (예: /teacher.html)
-      const currentPath = window.location.pathname;
-
-      // 2. 모든 소메뉴의 링크를 가져옵니다.
+      // 1. 주소 한글 변환
+      const currentPath = decodeURIComponent(window.location.pathname);
       const subLinks = document.querySelectorAll('.dropdown-menu li a');
 
       subLinks.forEach(function (link) {
-        // 링크에 적힌 주소 가져오기 (예: teacher.html)
         const linkPath = link.getAttribute('href');
 
-        // 3. "현재 주소" 안에 "링크 주소"가 포함되어 있는지 확인
-        // (빈 링크 '#' 이거나, 주소가 없을 때는 무시)
+        // 2. 링크 주소 일치 여부 확인
         if (linkPath && linkPath !== '#' && currentPath.indexOf(linkPath) !== -1) {
 
-          // (1) 소메뉴: 'current-page' 클래스 추가 (색상 변경용)
+          // (1) 현재 소메뉴(자식) 스타일 변경
           link.classList.add('current-page');
+          link.style.color = '#ff0000';
+          link.style.fontWeight = '500';
 
-          // (2) 부모 메뉴: 'active' 클래스 추가 (메뉴판 열어두기용)
+          // (2) 부모 메뉴(큰 메뉴) 찾아서 색상 변경
           const parentWrap = link.closest('.menu-item-wrap');
+
           if (parentWrap) {
-            parentWrap.classList.add('active');
+            // 주의: 여기서 parentWrap에 'active'를 추가하면 메뉴가 펼쳐지므로 추가하지 않습니다.
+
+            // 대신 큰 메뉴 제목(a.menu-item)을 찾습니다.
+            const bigMenu = parentWrap.querySelector('.menu-item');
+
+            if (bigMenu) {
+              // 큰 메뉴의 색상을 강제로 변경하여 '활성화됨'을 표시
+              bigMenu.style.color = '#ff0000';
+              bigMenu.style.fontWeight = '500';
+              bigMenu.style.borderBottom = '1px solid #AAAAAA';
+            }
           }
         }
       });
 
-      // 4. 부모 메뉴가 켜졌으니, 전체 메뉴판 상태(active-mode)도 업데이트
       if (typeof checkMenuStatus === 'function') {
         checkMenuStatus();
       }
     }
 
-    // 페이지가 다 열리면 즉시 실행!
     window.addEventListener('DOMContentLoaded', highlightCurrentPage);
     // [[Full edit important]]                              menu bar [End]__[Menu Bar] [java]  
 
@@ -880,6 +1175,34 @@
     });
 
     // [[Full edit important]]                                          footer [End]__[java]
+
+    // [[Full edit important]]                              [Start]__[Scrolltopbutton] [java]
+    // 1. 버튼 요소 가져오기
+    let mybutton = document.getElementById("scrollTopBtn");
+
+    // 2. 스크롤 할 때마다 실행되는 함수
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      // 스크롤을 20px 이상 내리면 버튼을 보여줌 (block)
+      // 맨 위에 있으면 숨김 (none)
+      if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+
+    // 3. 버튼 클릭 시 맨 위로 올라가는 함수
+    mybutton.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth" /* 부드럽게 스르륵 올라가기 */
+      });
+    });
+    // [[Full edit important]]                               [End]__[Scrolltopbutton] [java]
 
   </script>
 </body>
