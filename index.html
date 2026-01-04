@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>보령 미용학원</title>
+
+  <style>
+    /* */
+    @keyframes blink-effect-1 {
+      0% {
+        background-color: #c9dfd4;
+        transform: scale(1);
+      }
+    }
+
+    /* */
+
+    /*                                             Base Layout Set [Start]__[CSS]*/
+    body {
+      background-color: #fdfdfd;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+      min-height: 200vh;
+    }
+
+    /*                                                Base Layout Set [End]__[CSS]*/
+
+    /*                                                     top bar [Start]__[CSS]*/
+    .top-bar {
+      position: fixed;
+      /*화면에 고정*/
+      font-family: "굴림", sans-serif;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 95%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      z-index: 1000;
+      box-sizing: border-box;
+    }
+
+    .top-center {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .top-center img {
+      height: 40px;
+    }
+
+    .center-text-1 {
+      font-size: 35px;
+      font-weight: 700;
+      color: #2c3e50;
+      margin-left: 10px;
+    }
+
+    .center-text-2 {
+      font-size: 35px;
+      font-weight: 900;
+      color: #545454;
+      margin-left: 5px;
+    }
+
+    .center-text-3 {
+      font-size: 35px;
+      font-weight: 900;
+      color: #545454;
+      margin-left: 5px;
+    }
+
+    .center-text-4 {
+      font-size: 35px;
+      font-weight: 900;
+      color: #545454;
+      margin-left: 5px;
+    }
+
+    /*                                                     top bar [End]__[CSS]*/
+
+    /*                                                     top light [Start]__[CSS]*/
+    .phone-button-image-1 {
+      position: fixed;
+      top: 0px;
+      right: 30px;
+      z-index: 1000;
+      width: 250px;
+      margin: 10px auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      background-color: #ffffff;
+      border-radius: 30px;
+      padding: 1px 1px;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .phone-button-image-1:hover {
+      background-color: #9bd4b8;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .phone-button-image-1-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .phone-button-image-1-left img {
+      width: 30px;
+      height: 30px;
+      display: block;
+      /* 이미지 아래 빈 공간 제거 */
+    }
+
+    .phone-button-image-1-Light {
+      color: #dd464e;
+      font-size: 24px;
+      font-weight: 900;
+      font-family: '견고딕', sans-serif;
+      padding: 10px 0px;
+    }
+
+    /*                                                               top light [End]__[CSS]*/
+
+    /*                                                              foot bar [Start]__[CSS]*/
+    .footer-container {
+      background-color: #ffffff;
+      padding: 10px 10px;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 50%;
+      margin: 0px auto;
+      border-radius: 10px 10px;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .footer-container.minimized {
+      transform: translateY(100%);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-toggle-btn {
+      position: fixed;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      width: 60px;
+      margin: 0px auto;
+      height: 50px;
+      background-color: #222;
+      color: #fff;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 500;
+      z-index: 1001;
+
+      transition: background-color 0.3s;
+    }
+
+    .footer-toggle-btn:hover {
+      background-color: #444;
+    }
+
+    .footer-left {
+      width: 40%;
+      text-align: center;
+      height: 40px;
+      color: #222;
+      font-size: 24px;
+      font-weight: 300;
+      font-family: '굴림', sans-serif;
+      padding-top: 8px;
+      background-color: #a8ddc3;
+      border-radius: 10px 10px;
+      animation: blink-effect-1 0.5s infinite ease-in-out;
+      cursor: pointer;
+    }
+
+    .footer-right {
+      width: 40%;
+      height: 40px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      background-color: #eceaea;
+      border-radius: 10px 10px;
+      padding: 5px 5px;
+      text-decoration: none;
+    }
+
+    .footer-right-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .footer-right-left img {
+      width: 30px;
+      height: 30px;
+      display: block;
+    }
+
+    .footer-right-right {
+      color: #181616;
+      font-size: 24px;
+      font-weight: 300;
+      font-family: '굴림', sans-serif;
+      padding: 10px 0px;
+
+    }
+
+    /*                                                                 foot bar [End]__[CSS]*/
+
+    /*                                                  Pop-Up-1 [Start]__[Pop-Up Set] [CSS]*/
+    .modal-overlay-1 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .modal-content-1 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      width: 350px;
+    }
+
+    .modal-content-1 h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    .modal-phone-1 {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ffeb3b;
+      background: #222;
+      padding: 10px;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 15px 0;
+    }
+
+    .modal-close-btn {
+      position: fixed;
+      background-color: #333;
+      color: white;
+      border: none;
+      top: 10px;
+      right: 10px;
+      padding: 2px 10px;
+      border-radius: 25px;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    .modal-overlay-2 {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 9999;
+    }
+
+    .modal-content-2 {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+      width: 350px;
+    }
+
+    .modal-close-btn:hover {
+      background-color: #555;
+    }
+
+    /*                                                    Pop-Up-1 [End]__[Pop-Up Set] [CSS]*/
+
+    /*                                                           [Start]__[Mobile Set] [CSS]*/
+    @media (max-width: 768px) {
+
+      /*                                                 top bar [Start]__[Mobile Set] [CSS]*/
+      .top-bar {
+        width: 60%;
+        top: 5px;
+      }
+
+      .center-text-1 {
+        font-size: 18px;
+      }
+
+      .center-text-2 {
+        font-size: 18px;
+      }
+
+      .top-center img {
+        height: 30px;
+      }
+
+      /*                                                  top bar [End]__[Mobile Set] [CSS]*/
+
+      /*                                               foot bar [Start]__[Mobile Set] [CSS]*/
+      .footer-container {
+        width: 90%;
+        margin: 10px 10px;
+      }
+
+      .footer-left h3 {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+
+      .footer-left p {
+        font-size: 10px;
+        line-height: 1;
+      }
+
+      .footer-inner .copyright {
+        font-size: 10px;
+        margin-top: 5px;
+      }
+
+      .footer-inner {
+        line-height: 1;
+      }
+
+      .footer-right h3 {
+        font-size: 13px;
+        margin-bottom: 5px;
+      }
+
+      .footer-right .footer-phone {
+        font-size: 15px;
+        padding: 5px 5px;
+      }
+
+      .footer-right p {
+        font-size: 10px;
+      }
+
+      /*                                                  foot bar [End]__[Mobile Set] [CSS]*/
+    }
+
+    /*                                                             [End]__[Mobile Set] [CSS]*/
+  </style>
+</head>
+
+<body>
+  <!--                                                            top bar [Start]__[html] -->
+  <header class="top-bar">
+    <a href="index.html" class="top-center">
+      <img src="Image_001_Boryeng City Logo.png" alt="City Logo" />
+      <span class="center-text-1">Lee</span>
+      <span class="center-text-2">Hair</span>
+      <span class="center-text-3">Beauty</span>
+      <span class="center-text-4">Academy</span>
+    </a>
+  </header>
+  <!--                                                              top bar [End]__[html] -->
+
+  <!--                                                          top light [Start]__[html] -->
+  <a href="tel:010-0000-0000" class="phone-button-image-1" id="phone-link">
+
+    <div class="phone-button-image-1-left">
+      <img src="Image_003_Phone-1.png" alt="Phone">
+    </div>
+
+    <div class="phone-button-image-1-Light">
+      041-930-0000
+    </div>
+
+  </a>
+  <!--                                                          top light [Start]__[html] -->
+
+  <!--                                                           foot bar [Start]__[html] -->
+  <div id="footer-toggle-btn" class="footer-toggle-btn">
+    숨기기
+  </div>
+
+  <div id="main-footer" class="footer-container">
+    <div class="footer-inner">
+      <div class="footer-left" id="item-link-1">
+        수강료 조회
+      </div>
+
+      <a href="tel:010-0000-0000" class="footer-right">
+
+        <div class="footer-right-left">
+          <img src="Image_004_location-1.png" alt="Location">
+        </div>
+
+        <div class="footer-right-right">
+          학원 위치
+        </div>
+
+      </a>
+    </div>
+  </div>
+  <!--                                                              foot bar [End]__[html] -->
+
+  <!--                                               Pop-Up-1 [Start]__[Pop-Up Set] [html] -->
+  <div id="custom-modal-1" class="modal-overlay-1">
+    <div class="modal-content-1">
+      <h3>📞 안내 말씀</h3>
+      <p>
+        PC 환경에서는 전화 연결이 어렵습니다.<br>
+        <br>
+        스마트폰에서 터치하면 바로 연결됩니다.
+      </p>
+      <p class="modal-phone-1">041-930-0000</p>
+
+      <button class="modal-close-btn" onclick="closeModal()">X</button>
+    </div>
+  </div>
+
+  <div id="custom-modal-2" class="modal-overlay-2">
+    <div class="modal-content-2">
+      <h3>수강료 조회</h3>
+      <p>
+        PC 환경<br>
+        <br>
+        12345
+      </p>
+
+      <button class="modal-close-btn" onclick="closeModal()">X</button>
+    </div>
+  </div>
+  <!--                                                Pop-Up-1 [End]__[Pop-Up Set] [html] -->
+
+  <script>
+    //                                                                 Pop-Up [Start]__[java]  
+    let abc = false;
+    let abc1 = false;
+    // 1. 팝업 열기 함수
+    function openModal() {
+      if (abc == true) {
+        document.getElementById('custom-modal-1').style.display = 'block';
+      }
+      if (abc1 == true) {
+        document.getElementById('custom-modal-2').style.display = 'block';
+      }
+
+    }
+
+    // 2. 팝업 닫기 함수
+    function closeModal() {
+      document.getElementById('custom-modal-1').style.display = 'none';
+      abc = false;
+      document.getElementById('custom-modal-2').style.display = 'none';
+      abc1 = false;
+    }
+
+    // 3. 전화번호 클릭 이벤트
+    document.getElementById('phone-link').addEventListener('click', function (event) {
+      abc = true;
+      var screenWidth = window.innerWidth;
+
+      // PC 화면(768px 초과)일 때만 팝업 띄움
+      if (screenWidth > 768) {
+        event.preventDefault(); // 전화 걸기 차단
+        openModal();
+      }
+    });
+    document.getElementById('item-link-1').addEventListener('click', function (event) {
+      abc1 = true;
+      var screenWidth = window.innerWidth;
+
+      // PC 화면(768px 초과)일 때만 팝업 띄움
+      if (screenWidth > 768) {
+        event.preventDefault(); // 전화 걸기 차단
+        openModal();
+      }
+    });
+
+    // (옵션) 팝업 바깥 어두운 배경을 클릭하면 닫히게 하기
+    document.getElementById('custom-modal-1').addEventListener('click', function (event) {
+      if (event.target === this) {
+        closeModal();
+      }
+    });
+    //                                                                 Pop-Up [End]__[java]
+
+    //
+    const footer = document.getElementById('main-footer');
+    const toggleBtn = document.getElementById('footer-toggle-btn');
+
+    toggleBtn.addEventListener('click', function () {
+      footer.classList.toggle('minimized');
+
+      if (footer.classList.contains('minimized')) {
+        toggleBtn.innerText = "보이기";
+      } else {
+        toggleBtn.innerText = "숨기기";
+      }
+
+    });
+
+
+
+
+    //
+
+
+  </script>
+</body>
+
+</html>
