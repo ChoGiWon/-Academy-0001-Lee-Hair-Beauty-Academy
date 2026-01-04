@@ -243,6 +243,154 @@
 
     /*                                                                 foot bar [End]__[CSS]*/
 
+    /*                                                menu bar [Start]__[Menu Bar Set] [CSS]*/
+    /* 1. 메뉴바 전체 틀 */
+    .main-nav {
+      background-color: #ffffff;
+      /* 연한 회색 배경 */
+      width: 100%;
+      justify-content: center;
+      margin-top: 70px;
+      z-index: 1000;
+    }
+
+    /* 2. 메뉴 리스트 정렬 (가로 배치) */
+    .menu-list {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      /* 점(bullet) 제거 */
+      padding: 0;
+      margin: 0 auto;
+      gap: 0px;
+    }
+
+    /* 3. 메뉴 링크 기본 스타일 */
+    .menu-item {
+      display: block;
+      padding: 1px 50px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .menu-item:hover,
+    .menu-item.active {
+      background-color: #7798bb;
+      color: #ffffff;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /*                           dropdown menu [Start]__[Dropdown Menu][Menu Bar Set] [CSS]*/
+    /* 1. 부모 메뉴 */
+    .menu-item-wrap {
+      position: relative;
+    }
+
+    /* 2. 소메뉴 박스 스타일 */
+    .dropdown-menu {
+      display: none;
+      /* 평소에는 숨김 */
+      position: absolute;
+      /* 공중에 띄움 */
+      top: 100%;
+      left: 0;
+      width: 100%;
+      /* 부모 너비에 맞춤 (필요시 160px 등으로 고정 가능) */
+      min-width: 100px;
+      background-color: #ffffff;
+      /*box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);*/
+      padding: 0;
+      list-style: none;
+      z-index: 1000;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    /* 3. 소메뉴 내부 링크 */
+    .dropdown-menu li a {
+      color: #333;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    /* 4. 소메뉴 마우스 올렸을 때 (Hover) */
+    .dropdown-menu li a:hover {
+      background-color: #ced4da;
+      color: #000;
+      font-weight: 700;
+    }
+
+    /* 현재 보고 있는 페이지의 소메뉴 스타일 (진하게 표시) */
+    .dropdown-menu li a.current-page {
+      font-weight: bold;
+      color: #0056b3;
+      /* 진한 파란색 글씨 */
+      background-color: #e2e6ea;
+      /* 연한 배경색 */
+    }
+
+    /* 5. ★ 핵심 변경 사항: 전체 보여주기 로직 */
+    /* 해석: .menu-list(메뉴바 전체)에 마우스가 올라가면, 그 안의 모든 .dropdown-menu를 보여라 */
+    .menu-list:hover .dropdown-menu {
+      display: block;
+
+      /* 등장 애니메이션 (선택사항) */
+      animation: slideDown 0.3s ease;
+    }
+
+    /* 부드럽게 내려오는 효과 (선택사항) */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 2. [추가] 메뉴 중 하나라도 클릭되어 활성화 모드(.active-mode)가 되면 다 보여주기 */
+    /* "나 하나 선택됐다고 다른 애들 닫지 마!" */
+    .menu-list.active-mode .dropdown-menu {
+      display: block;
+    }
+
+    /* [추가] 메뉴가 활성화(active) 상태면 소메뉴를 무조건 보여줌 */
+    .menu-item-wrap.active .dropdown-menu {
+      display: block;
+      background-color: #d1e7dd;
+      /* 연한 초록색 (원하는 색으로 변경 가능) */
+
+      /* 좀 더 눈에 띄게 하려면 테두리나 글자색도 변경 가능 */
+      /* border: 1px solid #0f5132; */
+    }
+
+    /* 4. (선택사항) 선택된 소메뉴 안의 링크들에 마우스 올렸을 때 */
+    .menu-item-wrap.active .dropdown-menu li a:hover {
+      background-color: #badbcc;
+      /* 배경색보다 조금 더 진한 색 */
+    }
+
+    /* (선택사항) 활성화된 메뉴의 버튼 색상도 유지하고 싶다면 */
+    .menu-item-wrap.active .menu-item {
+      background-color: #007bff;
+      /* 파란색 배경 */
+      color: #ffffff;
+      /* 흰색 글씨 */
+    }
+
+    /*                              dropdown menu [End]__[Dropdown Menu][Menu Bar Set] [CSS]*/
+    /*                                                  menu bar [End]__[Menu Bar Set] [CSS]*/
+
     /*                                                  Pop-Up-1 [Start]__[Pop-Up Set] [CSS]*/
     .modal-overlay-1 {
       display: none;
@@ -403,7 +551,7 @@
 <body>
   <!--                                                            top bar [Start]__[html] -->
   <header class="top-bar">
-    <a href="index.html" class="top-center">
+    <a href="#" class="top-center">
       <img src="Image_001_Boryeng City Logo.png" alt="City Logo" />
       <span class="center-text-1">Lee</span>
       <span class="center-text-2">Hair</span>
@@ -452,7 +600,47 @@
     </div>
   </div>
   <!--                                                              foot bar [End]__[html] -->
+  <!--                                                 menu bar [Start]__[Menu Bar] [html] -->
+  <nav class="main-nav">
+    <ul class="menu-list">
 
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">아카데미</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">학원 소개</a></li>
+          <li><a href="#">강사진</a></li>
+          <li><a href="#">오시는 길</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">교육과정</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">헤어 미용</a></li>
+          <li><a href="#">두피 관리</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">자료실</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">헤어미용 이론</a></li>
+          <li><a href="#">두피관리 이론</a></li>
+          <li><a href="#">과제별 동영상</a></li>
+        </ul>
+      </li>
+
+      <li class="menu-item-wrap">
+        <a href="#" class="menu-item">상담코너</a>
+        <ul class="dropdown-menu">
+          <li><a href="#">수강료 조회</a></li>
+          <li><a href="#">1:1 상담</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+  <!--                                                   menu bar [End]__[Menu Bar] [html] -->
   <!--                                               Pop-Up-1 [Start]__[Pop-Up Set] [html] -->
   <div id="custom-modal-1" class="modal-overlay-1">
     <div class="modal-content-1">
@@ -483,6 +671,140 @@
   <!--                                                Pop-Up-1 [End]__[Pop-Up Set] [html] -->
 
   <script>
+    //                                                     menu bar [Start]__[Menu Bar] [java]  
+    // 1. 필요한 요소들을 가져옵니다.
+    const menuList = document.querySelector('.menu-list'); // 메뉴판 전체 (부모)
+    const menuWraps = document.querySelectorAll('.menu-item-wrap'); // 개별 메뉴들 (자식)
+
+    // 2. 각 메뉴에 클릭 이벤트 연결
+    menuWraps.forEach(function (wrap) {
+      const link = wrap.querySelector('.menu-item');
+
+      // 링크가 없는 메뉴가 있을 수도 있으니 확인 후 실행
+      if (link) {
+        link.addEventListener('click', function (e) {
+          // (선택 사항) 링크 이동 막기 (테스트용)
+          // e.preventDefault();
+
+          // [핵심 1] 다른 형제 메뉴들의 'active' 상태는 끕니다.
+          // "나만 켜져야 하니까, 딴 애들은 꺼져"
+          menuWraps.forEach(function (other) {
+            if (other !== wrap) {
+              other.classList.remove('active');
+            }
+          });
+
+          // [핵심 2] 내 상태를 토글합니다. (켜져있으면 끄고, 꺼져있으면 킴)
+          wrap.classList.toggle('active');
+
+          // [핵심 3] 전체 메뉴판 상태 업데이트
+          // "지금 켜진 애가 하나라도 있니?" 확인해서 부모에게 알려줌
+          checkMenuStatus();
+        });
+      }
+    });
+
+    // 3. 부모(.menu-list)의 상태를 관리하는 함수
+    function checkMenuStatus() {
+      let hasActive = false;
+
+      // 메뉴들 중 하나라도 active 클래스가 있는지 검사
+      menuWraps.forEach(function (wrap) {
+        if (wrap.classList.contains('active')) {
+          hasActive = true;
+        }
+      });
+
+      // 하나라도 켜져 있다면 -> 부모에게 'active-mode' 부여 (CSS에서 이걸 보고 전체 소메뉴를 보여줌)
+      if (hasActive) {
+        menuList.classList.add('active-mode');
+      } else {
+        menuList.classList.remove('active-mode');
+      }
+    }
+
+    // 4. 화면의 빈 곳을 클릭하면 메뉴 모두 닫기
+    window.addEventListener('click', function (e) {
+      // 클릭한 곳이 메뉴바(.main-nav) 내부가 아니라면
+      if (!e.target.closest('.main-nav')) {
+        // 모든 메뉴의 active 제거
+        menuWraps.forEach(function (wrap) {
+          wrap.classList.remove('active');
+        });
+        // 부모의 active-mode 제거
+        if (menuList) {
+          menuList.classList.remove('active-mode');
+        }
+      }
+    });
+
+    /* --- [추가] 소메뉴 클릭 시 부모 메뉴 활성화하기 --- */
+    const subMenuLinks = document.querySelectorAll('.dropdown-menu li a');
+
+    subMenuLinks.forEach(function (subLink) {
+      subLink.addEventListener('click', function (e) {
+        // 1. 이벤트 전파 방지 (혹시 모를 버그 방지)
+        e.stopPropagation();
+
+        // 2. 클릭한 소메뉴의 '진짜 부모(menu-item-wrap)'를 찾습니다.
+        const parentWrap = subLink.closest('.menu-item-wrap');
+
+        // 3. 다른 메뉴들은 다 끕니다 (하나만 선택되게 하려면)
+        menuWraps.forEach(function (wrap) {
+          if (wrap !== parentWrap) {
+            wrap.classList.remove('active');
+          }
+        });
+
+        // 4. 찾은 부모 메뉴를 활성화(active) 시킵니다.
+        if (parentWrap) {
+          parentWrap.classList.add('active');
+        }
+
+        // 5. 전체 메뉴판 상태(active-mode) 업데이트
+        // (이게 있어야 소메뉴 창이 사라지지 않고 유지됩니다)
+        checkMenuStatus();
+      });
+    });
+
+    /* --- [추가] 페이지 로드 시 현재 URL과 일치하는 메뉴 활성화 --- */
+
+    function highlightCurrentPage() {
+      // 1. 현재 브라우저의 주소(경로)를 가져옵니다. (예: /teacher.html)
+      const currentPath = window.location.pathname;
+
+      // 2. 모든 소메뉴의 링크를 가져옵니다.
+      const subLinks = document.querySelectorAll('.dropdown-menu li a');
+
+      subLinks.forEach(function (link) {
+        // 링크에 적힌 주소 가져오기 (예: teacher.html)
+        const linkPath = link.getAttribute('href');
+
+        // 3. "현재 주소" 안에 "링크 주소"가 포함되어 있는지 확인
+        // (빈 링크 '#' 이거나, 주소가 없을 때는 무시)
+        if (linkPath && linkPath !== '#' && currentPath.indexOf(linkPath) !== -1) {
+
+          // (1) 소메뉴: 'current-page' 클래스 추가 (색상 변경용)
+          link.classList.add('current-page');
+
+          // (2) 부모 메뉴: 'active' 클래스 추가 (메뉴판 열어두기용)
+          const parentWrap = link.closest('.menu-item-wrap');
+          if (parentWrap) {
+            parentWrap.classList.add('active');
+          }
+        }
+      });
+
+      // 4. 부모 메뉴가 켜졌으니, 전체 메뉴판 상태(active-mode)도 업데이트
+      if (typeof checkMenuStatus === 'function') {
+        checkMenuStatus();
+      }
+    }
+
+    // 페이지가 다 열리면 즉시 실행!
+    window.addEventListener('DOMContentLoaded', highlightCurrentPage);
+    //                                                     menu bar [End]__[Menu Bar] [java]  
+
     //                                                                 Pop-Up [Start]__[java]  
     let abc = false;
     let abc1 = false;
